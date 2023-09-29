@@ -1,0 +1,81 @@
+:root {
+  --tablet-sidebar-width: 6rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+  max-height: 100vh;
+}
+
+.circle {
+  border-radius: 24px;
+  background-color: burlywood;
+  width: 40px;
+  height: 40px;
+  min-height: 40px;
+}
+
+aside {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+nav {
+  --gap: 8px;
+
+  width: 100%;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  gap: var(--gap);
+
+  background-color: darkslategray;
+  color: white;
+
+  /* Adiciona uma borda inferior para a barra de navegação */
+  border-bottom: 2px solid darkseagreen;
+
+  & a {
+    color: white;
+    text-decoration: none;
+  }
+
+  & .bar-item {
+    flex: 1 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    min-width: 2.5rem;
+    max-width: 6rem;
+
+    min-height: 0;
+    max-height: 4.5rem;
+
+    padding: 0.5rem;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    transition: background-color 0.2s ease;
+  }
+
+  & .bar-item:hover {
+    background-color: hsla(0, 0%, 0%, 0.289);
+  }
+
+  & .user-info {
+    & .user-name {
+      text-align: center;
+      font-weight: 700;
+    }
+  }
+}
