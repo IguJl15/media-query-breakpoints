@@ -11,9 +11,28 @@ body {
   padding: 0;
 }
 
-img {
-  width: 100%;
-  max-height: 50vh;
+article {
+  margin: auto;
+  max-width: 800px;
+  padding: 0 1rem;
+
+  color: hsl(180, 20%, 20%);
+
+  & h1 {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: hsl(180, 25%, 25%);
+    font-size: 3rem;
+    text-align: center;
+  }
+  & i {
+    color: hsl(180, 25%, 19%);
+  }
+
+  & p {
+    padding-left: 0.5rem;
+    /* default is about 1.2 for paragraphs */
+    line-height: 1.3em;
+  }
 }
 
 .circle {
@@ -99,7 +118,7 @@ nav {
       text-align: center;
       font-weight: 700;
 
-      line-height: 1rem;
+      line-height: 1.2rem;
     }
   }
 }
@@ -109,6 +128,10 @@ nav {
     /* I don't think it is the best solution. 
     For me, this looks like a workaround ("gambiarra") */
     margin-left: var(--tablet-sidebar-width);
+  }
+
+  article {
+    padding: 0 2rem;
   }
 
   aside {
@@ -157,12 +180,15 @@ nav {
     margin-left: var(--desktop-sidebar-width);
   }
 
+  article {
+    font-size: 110%;
+  }
+
   aside {
     width: var(--desktop-sidebar-width);
   }
 
   nav {
-
     font-size: 1rem;
 
     & .bar-item {
