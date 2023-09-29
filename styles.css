@@ -66,6 +66,10 @@ nav {
     text-overflow: ellipsis;
 
     transition: background-color 0.2s ease;
+
+    &.logout-button {
+      display: none;
+    }
   }
 
   & .bar-item:hover {
@@ -79,3 +83,53 @@ nav {
     }
   }
 }
+
+@media (min-width: 1200px) {
+  main {
+    margin-left: var(--tablet-sidebar-width);
+  }
+
+  aside {
+    height: 100%;
+    width: var(--tablet-sidebar-width);
+    position: fixed;
+    z-index: 1;
+  }
+
+  nav {
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0;
+
+    & .bar-item {
+      flex: none;
+      max-height: none;
+      max-width: none;
+
+      flex-direction: row;
+      align-items: center;
+      gap: var(--gap);
+
+      &.logout-button {
+        display: block;
+      }
+    }
+
+    & .user-info {
+      flex-direction: column;
+      align-items: flex-start;
+
+      padding: 1rem;
+      gap: var(--gap);
+
+      border-bottom: 2px solid darkseagreen;
+
+      & .user-name {
+        text-align: left;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
