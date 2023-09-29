@@ -1,5 +1,9 @@
 :root {
   --tablet-sidebar-width: 6rem;
+  --desktop-sidebar-width: 12rem;
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 body {
@@ -24,6 +28,20 @@ aside {
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+
+.logout-button {
+  background-color: hsl(25, 75%, 49%);
+  margin: 0.5rem;
+
+  text-align: center;
+  border-radius: 4px;
+}
+
+/* Double class selector for higher specificity
+See: https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity */
+.logout-button.logout-button:hover {
+  background-color: hsl(25, 75%, 55%);
 }
 
 nav {
@@ -87,58 +105,9 @@ nav {
   }
 }
 
-@media (min-width: 1200px) {
-  main {
-    margin-left: var(--tablet-sidebar-width);
-  }
-
-  aside {
-    height: 100%;
-    width: var(--tablet-sidebar-width);
-    position: fixed;
-    z-index: 1;
-  }
-
-  nav {
-    height: 100%;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 0;
-
-    & .bar-item {
-      flex: none;
-      max-height: none;
-      max-width: none;
-
-      flex-direction: row;
-      align-items: center;
-      gap: var(--gap);
-
-      &.logout-button {
-        display: block;
-      }
-    }
-
-    & .user-info {
-      flex-direction: column;
-      align-items: flex-start;
-
-      padding: 1rem;
-      gap: var(--gap);
-
-      border-bottom: 2px solid darkseagreen;
-
-      & .user-name {
-        text-align: left;
-        font-weight: 700;
-      }
-    }
-  }
-}
-
-
 @media (min-width: 700px) {
   main {
+    /* I don't think it is the best solution. For me, looks like a workaround ("gambiarra) */
     margin-left: var(--tablet-sidebar-width);
   }
 
@@ -146,7 +115,6 @@ nav {
     height: 100%;
     width: var(--tablet-sidebar-width);
     position: fixed;
-    z-index: 1;
   }
 
   nav {
@@ -160,32 +128,56 @@ nav {
       max-height: none;
       max-width: none;
 
-      align-items: center;
-      gap: var(--gap);
-
       &.logout-button {
         display: block;
+        margin-top: auto;
       }
     }
 
     & .user-info {
-      flex-direction: column;
-      align-items: flex-start;
-
       padding: 1rem;
       gap: var(--gap);
 
       border-bottom: 2px solid darkseagreen;
 
       & .user-name {
-        text-align: left;
+        /* Max 2 lines */
+        line-height: 16px;
+        max-height: 32px;
+        overflow: hidden;
+
         font-weight: 700;
       }
     }
   }
 }
 
+@media (min-width: 1200px) {
+  main {
+    margin-left: var(--desktop-sidebar-width);
+  }
 
+  aside {
+    width: var(--desktop-sidebar-width);
+  }
+
+  nav {
+    & .bar-item {
+      flex-direction: row;
+
+      gap: var(--gap);
+    }
+
+    & .user-info {
+      flex-direction: column;
+      align-items: flex-start;
+
+      & .user-name {
+        text-align: left;
+      }
+    }
+  }
+}
 
 /* Very small device (I hate you, Galaxy Fold) */
 @media (max-width: 350px) {
